@@ -1,0 +1,16 @@
+Name:             demo-localhost
+Labels:           <none>
+Namespace:        default
+Address:          localhost
+Ingress Class:    nginx
+Default backend:  <default>
+Rules:
+  Host                            Path  Backends
+  ----                            ----  --------
+  citizenchoice.demo.localdev.me  
+                                  /   demo:80 (10.1.0.38:80)
+Annotations:                      <none>
+Events:
+  Type    Reason  Age                   From                      Message
+  ----    ------  ----                  ----                      -------
+  Normal  Sync    4m51s (x2 over 5m7s)  nginx-ingress-controller  Scheduled for sync

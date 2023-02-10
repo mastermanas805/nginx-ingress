@@ -1,0 +1,75 @@
+basePath: /
+host: localhost:3000
+info:
+  contact: {}
+  title: Example API
+  version: "1.0"
+paths:
+  /createpod/{podName}/{image}:
+    post:
+      consumes:
+      - application/json
+      description: Create a pod with the given image name in Kubernetes
+      parameters:
+      - description: Pod Name
+        in: path
+        name: podName
+        required: true
+        type: string
+      - description: Image Name
+        in: path
+        name: image
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Pod created successfully
+          schema:
+            type: string
+        "400":
+          description: Invalid image name
+          schema:
+            type: string
+        "500":
+          description: Failed to create pod
+          schema:
+            type: string
+      summary: Create a pod
+  /exposepod/{podName}/{port}:
+    post:
+      consumes:
+      - application/json
+      description: Expose a pod with the given pod name in Kubernetes
+      operationId: expose-pod
+      parameters:
+      - description: Pod Name
+        in: path
+        name: podName
+        required: true
+        type: string
+      - description: Port Number
+        in: path
+        name: port
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Pod exposed successfully
+          schema:
+            type: string
+        "400":
+          description: Invalid pod name
+          schema:
+            type: string
+        "500":
+          description: Failed to expose pod
+          schema:
+            type: string
+      summary: Expose a pod
+schemes:
+- http
+swagger: "2.0"
